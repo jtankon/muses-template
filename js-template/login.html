@@ -6,21 +6,21 @@
     <title>MUSESログイン</title>
   </head>
   <body>
-    ユーザー名：<input /> <button>ログイン</button>
+    ユーザー名：<input /> <!-- ユーザー名を入力するためのテキストボックスを表示 --><button>ログイン</button>  <!-- ログインボタンを表示 -->
 
     <script>
-      document.addEventListener('DOMContentLoaded', async () => {
-        delete sessionStorage.username;
-        document.querySelector('input').value = '武庫川　花子';
+      document.addEventListener('DOMContentLoaded', async () => { /* ページのDOMツリーが読み込まれたときに実行される関数を定義 */
+        delete sessionStorage.username; /* セッションストレージからユーザー名を削除。前回のセッションで入力されたユーザー名がクリアされる */
+        document.querySelector('input').value = '武庫川　花子'; /* ユーザー名のテキストボックスに初期値として"武庫川　花子"を設定 */
       });
 
-      document.querySelector('button').addEventListener('click', () => {
-        const username = document.querySelector('input').value;
+      document.querySelector('button').addEventListener('click', () => { /* ログインボタンがクリックされたときに実行される関数を定義*/
+        const username = document.querySelector('input').value; /* テキストボックスからユーザー名を取得してusername変数に代入 */
         if (!username) {
           window.alert('ユーザー名を入力してください');
-        } else {
-          sessionStorage.username = username;
-          location.href = 'index.html';
+        } else { /* ユーザー名が空でないことを確認し、空の場合はアラートを表示。空でない場合は、次の処理に進む。 */
+          sessionStorage.username = username; /* 入力されたユーザー名をセッションストレージに保存 */
+          location.href = 'index.html'; /* ログインが成功したら、'index.html'にリダイレクトする */
         }
       });
     </script>
