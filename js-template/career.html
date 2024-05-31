@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUSESメニュー</title>
+    <link href="index.css" rel="stylesheet" />
+    <link href="career.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <figure id="logo">
+        <img src="img/logo.png" />
+      </figure>
+      <div id="user_name">
+        <img src="img/user_icon.png" /><span></span> さん
+      </div>
+      <!--ユーザー名の表示とスペースの確保-->
+      <div id="upper_menu">
+        <!--pC版のサイトに移動するためのリンク-->
+        <div>
+          <img src="img/pc_site.png" /><br />
+          PC版
+        </div>
+        <div>
+          <img src="img/timeout.png" /><br />
+          残り<br />約40分
+        </div>
+        <!--ユーザーがサイトにアクセスできる残り時間を表示-->
+        <div>
+          <a href="login.html">
+            <img src="img/logout.png" /><br />
+            ログアウト
+          </a>
+        </div>
+        <!--ログアウトするためのリンク-->
+      </div>
+      <div id="news">
+        <div id="news_title"><img src="img/infoman.png" />新着情報</div>
+        <div id="news_num">
+          <img src="img/board.png" />未読掲示が&nbsp;<span class="unread"></span
+          >件 あります！
+        </div>
+        <!--初期状態では空です。-->
+      </div>
+      <div id="link">
+        <div><a href="index.html">HOME &gt;</a></div>
+        <div>info@MUSES &gt;</div>
+      </div>
+      <p>登録されていません</p>
+    </header>
+
+    <main id="info">
+      <!--ページの主要なコンテンツ-->
+      <div id="info_header"><img src="img/loupe.gif" /> info@MUSES参照</div>
+      <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
+      <div id="info_link">
+        <!--情報セクションのヘッダー定義-->
+        <div id="caution">
+          ★★大学からの連絡・通知などはすべて口頭、文書及び本学所定の掲示板に掲示して行うものとします。★★
+        </div>
+        <div id="unread_num">
+          <span class="exmark">!</span>：未読(<span class="unread"></span>件)
+        </div>
+        <div id="info_list">
+          <!-- ここにはJavaScriptからデータを入力する -->
+        </div>
+      </div>
+      <div id="control">
+        <!--情報の表示や操作を制御するための要素-->
+        <div class="info_btn">既読も表示</div>
+        <!--情報の表示や検索を行うためのボタン-->
+        <div class="info_btn">info@MUSES 情報検索</div>
+      </div>
+      <div id="info_footer"><img src="img/loupe.gif" /> info@MUSES参照</div>
+      <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
+    </main>
+
+    <footer>
+      <!--通常、ページの最下部に配置され、著作権情報やサイト内リンクなどが含まれます。-->
+      <div id="link">
+        <div><a href="index.html">HOME &gt;</a></div>
+        <!--ホームページへのリンクを表示します。&gt;は、矢印を示すHTMLエンティティです。-->
+      </div>
+      <p>Information</p>
+      <div id="information"></div>
+      <!--追加の情報を表示するための空の要素です。-->
+    </footer>
+
+    <script src="menu.js"></script>
+  </body>
+</html>
