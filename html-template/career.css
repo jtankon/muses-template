@@ -1,6 +1,25 @@
+main{
+  margin-bottom: 2rem;
+  border: solid 0.5rem #f0f0f0;
+}
+
 div.event{
-  background-color: lavender;
-  padding: 0.5em;
-  height: 6em;
-  border-radius: 2em;
+  background-color: #d2fbaf;
+  margin-bottom: 0.2rem;
+  padding: 0.5rem;
+  height: 3em;
+  position: relative;
+  margin: 0.2rem;
+}
+
+div.time{
+  position: absolute;
+  top:8px;
+  left:230px;
+}
+
+div.place{
+  position: absolute;
+  top:32px;
+  left:230px;
 }
