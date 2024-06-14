@@ -46,10 +46,24 @@
       <!--ページの主要なコンテンツ-->
       <div id="info_header"><img src="img/loupe.gif" /> キャリア支援</div>
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
-      
-        <div id="info_list">
-          <!-- ここにはJavaScriptからデータを入力する -->
-        </div>
+      <form id="myForm">
+        <label for="date">日付:</label>
+        <input type="date" id="date" name="date" /><br /><br />
+        <label for="sch">内容:</label>
+        <input type="text" id="sch" name="sch" /><br /><br />
+        <label for="time">時間:</label>
+        <input type="time" id="time" name="time" /><br /><br />
+        <label for="place">場所:</label>
+        <input type="text" id="place" name="place" /><br /><br />
+
+        <button type="button" onclick="getFormData()">送信</button>
+    </form>
+
+    <h2>受け取ったデータ:</h2>
+    <p>日付: <span id="dateOutput"></span></p>
+    <p>予定: <span id="schOutput"></span></p>
+    <p>時間: <span id="timeOutput"></span></p>
+    <p>場所: <span id="placeOutput"></span></p>
       </div>
       <div id="control">
         <!--情報の表示や操作を制御するための要素-->
