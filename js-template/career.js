@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const mark = document.createElement("div");
         mark.className = "mark";
         const span = document.createElement("span");
-        span.textContent = "!";
         span.className = "exmark";
         mark.appendChild(span);
         record.appendChild(mark);
