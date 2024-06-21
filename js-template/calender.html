@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUSESメニュー</title>
+    <link href="index.css" rel="stylesheet" />
+    <link href="menu.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <figure id="logo">
+        <img src="img/logo.png" />
+      </figure>
+      <div id="user_name">
+        <img src="img/user_icon.png" /><span></span> さん
+      </div>
+      <div id="upper_menu">
+        <div>
+          <img src="img/pc_site.png" /><br />
+          PC版
+        </div>
+        <div>
+          <img src="img/timeout.png" /><br />
+          残り<br />約40分
+        </div>
+        <div>
+          <a href="login.html">
+            <img src="img/logout.png" /><br />
+            ログアウト
+          </a>
+        </div>
+      </div>
+
+      <div id="link">
+        <div><a href="index.html">HOME &gt;</a></div>
+        <div>キャリア支援 &gt;</div>
+      </div>
+    </header>
+
+    <main id="info">
+      <div id="info_header"><img src="img/loupe.gif" /> キャリア支援</div>
+      <form id="myForm">
+        <label for="date">日付:</label>
+        <input type="date" id="date" name="date" /><br /><br />
+        <label for="sch">内容:</label>
+        <input type="text" id="sch" name="sch" /><br /><br />
+        <label for="time">時間:</label>
+        <input type="time" id="time" name="time" /><br /><br />
+        <label for="place">場所:</label>
+        <input type="text" id="place" name="place" /><br /><br />
+
+        <button type="button" onclick="getFormData()">送信</button>
+      </form>
+
+      <h2>受け取ったデータ:</h2>
+      <div id="dataContainer">
+        <!-- データをここに追加していく -->
+      </div>
+    </main>
+
+    <footer>
+      <div id="link">
+        <div><a href="index.html">HOME &gt;</a></div>
+      </div>
+      <p>Information</p>
+      <div id="information"></div>
+    </footer>
+
+    <script src="calender.js"></script>
+  </body>
+</html>
