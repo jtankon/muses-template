@@ -32,9 +32,14 @@ main#info {
 
 .record {
   display: grid;
-  grid-template-columns: 2.5fr 2fr;
+  grid-template-columns: 2.3fr 2fr;
   grid-template-rows: 2fr 2fr;
   align-items: center;
+  font-size: 2ex;
+}
+
+.title {
+  font-weight: bold;
 }
 
 #control {

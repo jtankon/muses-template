@@ -26,18 +26,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       record.className = "record";
       
       const date = document.createElement("span");
+      date.className = "date";
       date.textContent = item.date;
       record.appendChild(date);
 
       const time = document.createElement("span");
+      time.className = "time";
       time.textContent = item.time;
       record.appendChild(time);
 
       const title = document.createElement("span");
+      title.className = "title";
       title.textContent = item.title;
       record.appendChild(title);
 
       const place = document.createElement("span");
+      place.className = "place";
       place.textContent = item.place;
       record.appendChild(place);
 
