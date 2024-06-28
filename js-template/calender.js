@@ -25,11 +25,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       start: item.date,
       description: `時間: ${item.time}, 場所: ${item.place}`,
     })),
-    eventRender: function (event, element) {
-      element.html('<div class="fc-event-dot"></div>');
-      element.qtip({
-        content: event.description,
-      });
+    eventRender: function (event, element, view) {
+      if (view.name === "month") {
+        element.html('<div class="fc-event-dot"></div>');
+      } else {
+        element.html(
+          '<div class="fc-event-dot"></div>' +
+            event.title +
+            "<br>" +
+            event.description
+        );
+      }
     },
   });
 });
@@ -55,6 +61,7 @@ function submitForm() {
   `;
   dataContainer.appendChild(newData);
 
+  // カレンダーに新しいイベントを追加する
   $("#calendar").fullCalendar(
     "renderEvent",
     {
@@ -64,5 +71,7 @@ function submitForm() {
     },
     true
   );
+
+  // フォームをリセットする
   form.reset();
 }
