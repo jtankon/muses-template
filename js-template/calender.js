@@ -19,11 +19,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       center: "title",
       right: "month,agendaWeek,agendaDay",
     },
-    editable: true,
+    ditable: true,
+    height: "auto", // Adjust the height to fit the container
+    contentHeight: "auto", // Adjust the content height to fit the container
     events: data.map((item) => ({
       title: item.sch,
-      start: item.date,
-      description: `時間: ${item.time}, 場所: ${item.place}`,
+      start: `${item.date}T${item.time}`, // Combine date and time for the event
+      description: `場所: ${item.place}`,
     })),
     eventRender: function (event, element, view) {
       if (view.name === "month") {
@@ -66,8 +68,8 @@ function submitForm() {
     "renderEvent",
     {
       title: data.sch,
-      start: data.date,
-      description: `時間: ${data.time}, 場所: ${data.place}`,
+      start: `${data.date}T${data.time}`,
+      description: `${data.time}～, 場所: ${data.place}`,
     },
     true
   );
