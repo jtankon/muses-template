@@ -46,11 +46,22 @@
       <!--ページの主要なコンテンツ-->
       <div id="info_header"><img src="img/loupe.gif" /> キャリア支援</div>
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
-      
-        <div id="info_list">
-          <!-- ここにはJavaScriptからデータを入力する -->
-        </div>
-      </div>
+      <form id="myForm">
+        <label for="con">相談内容:</label>
+        <select>
+          <option selected disabled></option>
+          <option>履歴書・ESの書き方・添削</option>
+          <option>就職活動について</option>
+          <option>採用試験について</option>
+          <option>模擬面接</option>
+          <option>公務員就職について</option>
+          <option>インターンシップについて</option></select
+        ><br /><br />
+        <label for="det">詳細:</label>
+        <input type="text" id="sch" name="sch" /><br /><br />
+
+        <button type="button" onclick="submitForm()">送信</button>
+      </form>
       <div id="control">
         <!--情報の表示や操作を制御するための要素-->
         <div class="info_btn" a href="form.html">申込</div>
@@ -58,7 +69,7 @@
         <div class="info_btn" a href="question.html">質問</div>
       </div>
       <div id="info_footer"><img src="img/loupe.gif" /> キャリア支援</div>
-    
+
       <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
     </main>
 
