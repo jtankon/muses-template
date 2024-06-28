@@ -12,9 +12,29 @@ document.addEventListener("DOMContentLoaded", async () => {
   const obj = await res.json();
   const data = obj.list;
   console.log(data);
+
+  $("#calendar").fullCalendar({
+    header: {
+      left: "prev,next today",
+      center: "title",
+      right: "month,agendaWeek,agendaDay",
+    },
+    editable: true,
+    events: data.map((item) => ({
+      title: item.sch,
+      start: item.date,
+      description: `時間: ${item.time}, 場所: ${item.place}`,
+    })),
+    eventRender: function (event, element) {
+      element.html('<div class="fc-event-dot"></div>');
+      element.qtip({
+        content: event.description,
+      });
+    },
+  });
 });
 
-function getFormData() {
+function submitForm() {
   const form = document.getElementById("myForm");
   const formData = new FormData(form);
   const data = {};
@@ -34,4 +54,15 @@ function getFormData() {
     <hr>
   `;
   dataContainer.appendChild(newData);
+
+  $("#calendar").fullCalendar(
+    "renderEvent",
+    {
+      title: data.sch,
+      start: data.date,
+      description: `時間: ${data.time}, 場所: ${data.place}`,
+    },
+    true
+  );
+  form.reset();
 }
