@@ -123,3 +123,16 @@ main#info {
   flex: 1; /* Calendar will take the remaining height */
   overflow: auto;
 }
+
+.fc-agenda-view .fc-time-grid {
+  display: none;
+}
+
+.fc-agendaWeek-view .fc-day-grid {
+  display: block;
+}
+
+/* Adjust the all-day slot height */
+.fc-agenda-view .fc-day-grid {
+  min-height: 100px; /* Adjust this value as needed */
+}
