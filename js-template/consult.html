@@ -46,21 +46,23 @@
       <!--ページの主要なコンテンツ-->
       <div id="info_header"><img src="img/bag.png" width="22"/> キャリア支援</div>
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
-      <form id="myForm">
-        <label for="con">相談内容:</label>
+      <form id="Form">
+        <label for="con">相談内容：</label>
         <select>
-          <option selected disabled></option>
           <option>履歴書・ESの書き方・添削</option>
           <option>就職活動について</option>
           <option>採用試験について</option>
           <option>模擬面接</option>
           <option>公務員就職について</option>
           <option>インターンシップについて</option></select
-        ><br /><br />
-        <label for="det">詳細:</label>
-        <input type="text" id="sch" name="sch" /><br /><br />
+        ><br />
 
-        <button type="button" onclick="submitForm()">送信</button>
+        <label for="det" id="det">
+          詳細：<br>
+          <textarea cols="30" rows="5" minlength="10" id="area"></textarea>
+        </label><br>
+
+        <button type="button" onclick="submitForm()" id="submit">送信</button>
       </form>
 
       <div id="info_footer"><img src="img/bag.png" width="22"/> キャリア支援</div>
