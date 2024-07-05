@@ -39,6 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
       }
     },
+    dayClick: function (date, jsEvent, view) {
+      if (view.name === "month") {
+        $("#calendar").fullCalendar("changeView", "agendaDay"); // Change to day view
+        $("#calendar").fullCalendar("gotoDate", date); // Go to the clicked date
+      }
+    },
   });
 });
 
