@@ -51,6 +51,5 @@ document.addEventListener("DOMContentLoaded", async () => {
       } //subjectプロパティが存在するデータ項目に対して特定の表示を追加
       record.appendChild(el); //el要素をrecord要素に追加
     }
-    info_list.appendChild(record); //record要素をinfo_listに追加
   }
 });
