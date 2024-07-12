@@ -44,7 +44,9 @@
 
     <main id="info">
       <!--ページの主要なコンテンツ-->
-      <div id="info_header"><img src="img/bag.png" width="22"/> キャリア支援</div>
+      <div id="info_header">
+        <img src="img/bag.png" width="22" /> キャリア支援
+      </div>
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
       <form id="Form">
         <label for="con">相談内容：</label>
@@ -58,14 +60,26 @@
         ><br />
 
         <label for="det" id="det">
-          詳細：<br>
-          <textarea cols="30" rows="5" minlength="10" id="area"></textarea>
-        </label><br>
+          詳細：<br />
+          <textarea
+            cols="30"
+            rows="5"
+            minlength="10"
+            id="area"
+          ></textarea></label
+        ><br />
 
         <button type="button" onclick="submitForm()" id="submit">送信</button>
       </form>
 
-      <div id="info_footer"><img src="img/bag.png" width="22"/> キャリア支援</div>
+      <div id="confirmation_message" style="display: none">
+        <p>送信完了しました</p>
+        <button id="return_button">戻る</button>
+      </div>
+
+      <div id="info_footer">
+        <img src="img/bag.png" width="22" /> キャリア支援
+      </div>
 
       <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
     </main>
@@ -82,6 +96,6 @@
       <!--追加の情報を表示するための空の要素です。-->
     </footer>
 
-    <script src="menu.js"></script>
+    <script src="consult.js"></script>
   </body>
 </html>
