@@ -9,17 +9,6 @@ main#info {
   background-color: #5a9674;
 }
 
-#unread_num {
-  text-align: right;
-  font-weight: bold;
-  margin: 0.5rem 0 1rem;
-}
-
-
-#unread_num .exmark {
-  vertical-align: top;
-}
-
 #info_list {
   margin: 1rem 0.8rem 1rem;
 }
@@ -45,6 +34,7 @@ main#info {
 #control {
   margin-left: 1rem;
   margin-bottom: 0.2rem;
+  text-align: center;
 }
 
 .calender_btn {
@@ -56,10 +46,6 @@ main#info {
   padding-right: 0.6rem;
   position: relative;
   left:245px;
-}
-
-#control{
-  text-align: center;
 }
 
 .info_btn {
