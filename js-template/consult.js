@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function returnToForm() {
+    document.getElementById("area").value = "";
     // 完了メッセージを非表示にして、フォームを表示する
     document.getElementById("confirmation_message").style.display = "none";
     document.getElementById("Form").style.display = "block";
