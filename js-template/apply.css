@@ -10,9 +10,9 @@ main#info {
 }
 
 #caution {
-  font-size: 0.8em;
-  color: #33485e;;
-  padding: 0.5rem 1rem;
+  font-size: 1em;
+  line-height: 1.2;
+  color: #33485e;
   margin-top: 0.5rem;
 }
 
