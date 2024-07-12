@@ -12,21 +12,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const data = savedData ? JSON.parse(savedData) : [];
   console.log(data);
 
-  // データ表示部分を初期化
-  const dataContainer = document.getElementById("dataContainer");
-  data.forEach((item, index) => {
-    const newData = document.createElement("div");
-    newData.innerHTML = `
-      <p>日付: ${item.date}</p>
-      <p>予定: ${item.sch}</p>
-      <p>開始時間: ${item.start_time}</p>
-      <p>終了時間: ${item.finish_time}</p>
-      <p>場所: ${item.place}</p>
-      <button onclick="deleteEvent(${index})">削除</button>
-      <hr>
-    `;
-    dataContainer.appendChild(newData);
-  });
+  function renderData() {
+    const dataContainer = document.getElementById("dataContainer");
+    dataContainer.innerHTML = ""; // Clear previous data
+    data.forEach((item, index) => {
+      const newData = document.createElement("div");
+      newData.innerHTML = `
+        <p>日付: ${item.date}</p>
+        <p>予定: ${item.sch}</p>
+        <p>開始時間: ${item.start_time}</p>
+        <p>終了時間: ${item.finish_time}</p>
+        <p>場所: ${item.place}</p>
+        <button onclick="deleteEvent(${index})">削除</button>
+        <hr>
+      `;
+      dataContainer.appendChild(newData);
+    });
+  }
+
+  renderData();
+
+  function renderCalendarEvents() {
+    $("#calendar").fullCalendar("removeEvents");
+    $("#calendar").fullCalendar(
+      "renderEvents",
+      data.map((item) => ({
+        title: item.sch,
+        start: `${item.date}T${item.start_time}`, // Combine date and time for the event
+        end: item.finish_time ? `${item.date}T${item.finish_time}` : undefined,
+        allDay: !item.start_time, // If no time is specified, treat it as an all-day event
+        description: `場所: ${item.place}`,
+      })),
+      true
+    );
+  }
 
   $("#calendar").fullCalendar({
     header: {
@@ -104,59 +123,36 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
   });
+
+  function submitForm() {
+    const form = document.getElementById("myForm");
+    const formData = new FormData(form);
+    const newData = {};
+
+    formData.forEach((value, key) => {
+      newData[key] = value;
+    });
+
+    // Save to local storage
+    data.push(newData);
+    localStorage.setItem("events", JSON.stringify(data));
+
+    renderData();
+    renderCalendarEvents();
+
+    // フォームをリセットする
+    form.reset();
+  }
+
+  function deleteEvent(index) {
+    data.splice(index, 1); // Remove the event at the given index
+    localStorage.setItem("events", JSON.stringify(data));
+
+    renderData();
+    renderCalendarEvents();
+  }
+
+  // Export functions to global scope
+  window.submitForm = submitForm;
+  window.deleteEvent = deleteEvent;
 });
-
-function submitForm() {
-  const form = document.getElementById("myForm");
-  const formData = new FormData(form);
-  const data = {};
-
-  formData.forEach((value, key) => {
-    data[key] = value;
-  });
-
-  // Save to local storage
-  let savedData = localStorage.getItem("events");
-  savedData = savedData ? JSON.parse(savedData) : [];
-  savedData.push(data);
-  localStorage.setItem("events", JSON.stringify(savedData));
-
-  // 新しいデータを追加する
-  const dataContainer = document.getElementById("dataContainer");
-  const newData = document.createElement("div");
-  const index = savedData.length - 1; // Index of the new data
-  newData.innerHTML = `
-    <p>日付: ${data.date}</p>
-    <p>予定: ${data.sch}</p>
-    <p>開始時間: ${data.start_time}</p>
-    <p>終了時間: ${data.finish_time}</p>
-    <p>場所: ${data.place}</p>
-    <button onclick="deleteEvent(${index})">削除</button>
-    <hr>
-  `;
-  dataContainer.appendChild(newData);
-
-  // カレンダーに新しいイベントを追加する
-  const event = {
-    title: data.sch,
-    start: `${data.date}T${data.start_time}`, // Combine date and time for the event
-    end: data.finish_time ? `${data.date}T${data.finish_time}` : undefined,
-    allDay: !data.start_time, // If no time is specified, treat it as an all-day event
-    description: `場所: ${data.place}`,
-  };
-
-  $("#calendar").fullCalendar("renderEvent", event, true);
-
-  // フォームをリセットする
-  form.reset();
-}
-
-function deleteEvent(index) {
-  let savedData = localStorage.getItem("events");
-  savedData = savedData ? JSON.parse(savedData) : [];
-  savedData.splice(index, 1); // Remove the event at the given index
-  localStorage.setItem("events", JSON.stringify(savedData));
-
-  // 再度ロードして表示を更新
-  location.reload();
-}
