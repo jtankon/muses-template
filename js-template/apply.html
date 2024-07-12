@@ -46,34 +46,23 @@
     <!--申し込みをクリックしたら申し込み完了しましたと表示-->
     <main id="info">
       <!--ページの主要なコンテンツ-->
-      <div id="info_header"><img src="img/bag.png" width="22"/> キャリア支援</div>
+      <div id="info_header"><img src="img/bag.png" width="22"/>キャリアガイダンス・イベント申込</div>
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
-      <form id="myForm">
-        <label for="date">日付:</label>
-        <input type="date" id="date" name="date" /><br /><br />
-        <label for="sch">内容:</label>
-        <input type="text" id="sch" name="sch" /><br /><br />
-        <label for="time">時間:</label>
-        <input type="time" id="time" name="time" /><br /><br />
-        <label for="place">場所:</label>
-        <input type="text" id="place" name="place" /><br /><br />
-
-        <button type="button" onclick="getFormData()">送信</button>
-    </form>
-
-    <h2>受け取ったデータ:</h2>
-    <p>日付: <span id="dateOutput"></span></p>
-    <p>予定: <span id="schOutput"></span></p>
-    <p>時間: <span id="timeOutput"></span></p>
-    <p>場所: <span id="placeOutput"></span></p>
+      <div id="caution">
+        ◆イベントを選択し、キャリアガイダンス・イベントの詳細を確認してください。
+        下記のキャリアガイダンス・イベントに関する情報は、予告なく変更される場合がありますので、注意してください。
       </div>
-      <div id="control">
-        <!--情報の表示や操作を制御するための要素-->
-        <div class="info_btn" a href="apply.html">申込</div>
-        <!--情報の表示や検索を行うためのボタン-->
-        <div class="info_btn" a href="consult.html">質問</div>
+
+      <p>
+        <label><input type="radio" name="sort">開催日時</label>
+        <label><input type="radio" name="sort">申込受付期間</label>
+      </p>
+
+      <div id="caution">
+       ※並び順を変更する場合は、ラジオボタンで項目を選んでください。
       </div>
-      <div id="info_footer"><img src="img/bag.png" width="22"/> キャリア支援</div>
+
+      <div id="info_footer"><img src="img/bag.png" width="22"/> キャリアガイダンス・イベント申込</div>
     
       <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
     </main>
