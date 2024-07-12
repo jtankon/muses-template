@@ -15,9 +15,7 @@
       <div id="user_name">
         <img src="img/user_icon.png" /><span></span> さん
       </div>
-      <!--ユーザー名の表示とスペースの確保-->
       <div id="upper_menu">
-        <!--pC版のサイトに移動するためのリンク-->
         <div>
           <img src="img/pc_site.png" /><br />
           PC版
@@ -26,47 +24,46 @@
           <img src="img/timeout.png" /><br />
           残り<br />約40分
         </div>
-        <!--ユーザーがサイトにアクセスできる残り時間を表示-->
         <div>
           <a href="login.html">
             <img src="img/logout.png" /><br />
             ログアウト
           </a>
         </div>
-        <!--ログアウトするためのリンク-->
       </div>
-
       <div id="link">
         <div><a href="index.html">HOME &gt;</a></div>
         <div><a href="career.html">キャリア支援 &gt;</a></div>
       </div>
     </header>
-
-    <main id="info">
-      <!--ページの主要なコンテンツ-->
-      <div id="info_header"><img src="img/bag.png" width="22"/> キャリアガイダンス・イベント申込</div>
-      <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
-      <div id="caution">
-       ◆イベントを選択し、キャリアガイダンス・イベントの詳細を確認してください。
-       下記のキャリアガイダンス・イベントに関する情報は、予告なく変更される場合がありますので、注意してください。
+    <main id="apply">
+      <div id="apply_header">
+        <img src="img/bag.png" width="22" /> キャリアガイダンス・イベント申込
       </div>
-      <div id="info_footer"><img src="img/bag.png" width="22"/> キャリアガイダンス・イベント申込</div>
-    
-      <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
-    </main>
+      <div id="caution">
+        ◆イベントを選択し、キャリアガイダンス・イベントの詳細を確認してください。
+        下記のキャリアガイダンス・イベントに関する情報は、予告なく変更される場合がありますので、注意してください。
+      </div>
 
+      <hr />
+      <div id="situation">〇：開催日時　〇：申し込み受付期間</div>
+      <div id="sort">並び替え</div>
+      <hr />
+
+      ※並び順を変更する場合は、ラジオボタンで項目を選んでください。
+      <div id="events"></div>
+      <div id="apply_footer">
+        <img src="img/bag.png" width="22" /> キャリアガイダンス・イベント申込
+      </div>
+    </main>
     <footer>
-      <!--通常、ページの最下部に配置され、著作権情報やサイト内リンクなどが含まれます。-->
       <div id="link">
         <div><a href="index.html">HOME &gt;</a></div>
         <div><a href="career.html">キャリア支援 &gt;</a></div>
-        <!--ホームページへのリンクを表示します。&gt;は、矢印を示すHTMLエンティティです。-->
       </div>
       <p>Information</p>
       <div id="information"></div>
-      <!--追加の情報を表示するための空の要素です。-->
     </footer>
-
     <script src="apply.js"></script>
   </body>
 </html>

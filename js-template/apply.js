@@ -5,14 +5,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!username) {
     window.alert("ログインしてください");
     location.href = "login.html";
-  } //ユーザーネームを入力しなかったらアラートが出る
-  document.querySelector("#user_name span").textContent = username; //ユーザーネームの挿入
+  }
+  document.querySelector("#user_name span").textContent = username;
 
-  const res = await fetch("data.json"); //fetch関数を使ってdata.jsonを取得している
-  const obj = await res.json(); //取得したレスポンスをJSON形式で解析し、resからobjにJSONデータを格納している
-  const data = obj.list; //obj内のlistに含まれるデータをdataに格納している
-  console.log(data);
-  /*ウェブページがロードされたらサーバーから取得したJSON形式のデータを使って動的なコンテンツを生成するための処理を行う*/
+  const res = await fetch("apply.json");
+  const obj = await res.json();
+  const data = obj.list;
+
+  const eventsContainer = document.getElementById("events");
+
+  data.forEach((event) => {
+    const eventDiv = document.createElement("div");
+    eventDiv.className = "event";
+    eventDiv.innerHTML = `
+      <div class="event-header">${event.title}</div>
+      <div class="event-body">
+        <p>内容: ${event.content}</p>
+        <p>開催日時: ${event.date}</p>
+        <p>会場: ${event.venue}</p>
+        <p>定員: ${event.capacity}</p>
+        <p>申込期限: ${event.deadline}</p>
+        <p>取扱窓口: ${event.contact}</p>
+      </div>
+    `;
+    eventsContainer.appendChild(eventDiv);
+  });
 });
 
 function getFormData() {
@@ -24,7 +41,6 @@ function getFormData() {
     data[key] = value;
   });
 
-  // データを表示する
   document.getElementById("dateOutput").textContent = data.date;
   document.getElementById("schOutput").textContent = data.sch;
   document.getElementById("timeOutput").textContent = data.time;
