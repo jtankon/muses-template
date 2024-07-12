@@ -21,7 +21,7 @@ main#info {
 }
 
 #info_list {
-  margin: 0.5rem 0.5rem 1rem;
+  margin: 1rem 0.8rem 1rem;
 }
 
 #info_list > div {
@@ -49,24 +49,38 @@ main#info {
 
 .calender_btn {
   display: inline-block;
-  font-weight: bold;
   font-size: 1.2rem;
   background-color: #555555;
   padding: 0.3rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
   position: relative;
-  left:250px;
+  left:245px;
+}
+
+#control{
+  text-align: center;
 }
 
 .info_btn {
   display: inline-block;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: #b3f76b;
   border: solid 0.2rem #5a9674;
-  border-radius: 0.7rem;
   padding: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  margin-top: 2.5em;
+  margin-bottom: 1.5rem;
+  margin-right: 1.8rem;
+}
+
+#con{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  position: relative;
+  top: -12px;
 }
 
 #info_footer span {
@@ -74,4 +88,13 @@ main#info {
   border-radius: 50%;
   color: #33485e;
   margin-left: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #33485e;
+}
+
+#dis {
+  color: white;
 }
