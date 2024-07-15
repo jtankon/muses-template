@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // フォームを非表示にして、完了メッセージを表示する
     document.getElementById("Form").style.display = "none";
     document.getElementById("confirmation_message").style.display = "block";
-    document.getElementById("info").style.height = "233px";
-    document.getElementById("info_footer").style.top = "45px";
+    document.getElementById("info").style.height = "249px";
+    document.getElementById("info_footer").style.top = "40px";
   }
 
   function returnToForm() {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 完了メッセージを非表示にして、フォームを表示する
     document.getElementById("confirmation_message").style.display = "none";
     document.getElementById("Form").style.display = "block";
-    document.getElementById("info").style.height = "350px";
+    document.getElementById("info").style.height = "370px";
     document.getElementById("info_footer").style.top = "44px";
     submitButton.disabled = true;
   }

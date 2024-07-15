@@ -1,7 +1,7 @@
 main#info {
   margin-bottom: 2rem;
   border: solid 0.5rem #f0f0f0;
-  height: 350px;
+  height: 370px;
 }
 
 :is(#info_header, #info_footer) {
@@ -13,19 +13,21 @@ main#info {
 
 #area {
   position: relative;
-  left: 55px;
+  left: 100px;
   top:-22px;
 }
 
 #Form{
   position: relative;
-  left: 45px;
+  left: 35px;
   top:30px;
+  font-size: 19px;
 }
 
 #det{
   position: relative;
   top:30px;
+  font-size: 19px;
 }
 
 #info_footer{
@@ -35,17 +37,21 @@ main#info {
 
 #submit{
   position: relative;
-  left: 225px;
+  left: 215px;
   font-size: 1.5rem;
 }
 
 #confirmation_message{
-  font-size: 20px;
-  top: 10px;
+  font-size: 24px;
   position: relative;
+  top: 10px;
   text-align: center;
 }
 
 #return_button{
-  font-size: 20px;
+  font-size: 1.5rem;
+}
+
+#con{
+  font-size: 16px;
 }
