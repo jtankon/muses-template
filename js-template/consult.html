@@ -50,26 +50,26 @@
       <!--ルーペのアイコン表示。情報の検索や参照を示す目印として使用されます。-->
       <form id="Form">
         <label for="con">相談内容：</label>
-        <select>
+        <select id="con">
           <option>履歴書・ESの書き方・添削</option>
           <option>就職活動について</option>
           <option>採用試験について</option>
           <option>模擬面接</option>
           <option>公務員就職について</option>
-          <option>インターンシップについて</option></select
-        ><br />
+          <option>インターンシップについて</option>
+        </select><br />
 
-        <label for="det" id="det">
+        <label for="area" id="det">
           詳細：<br />
           <textarea
             cols="30"
             rows="5"
             minlength="10"
             id="area"
-          ></textarea></label
-        ><br />
+          ></textarea></label><br />
+          <p>※詳細に10文字以上入力してください</p>
+          <button type="button" id="submit" disabled>送信</button>
 
-        <button type="button" onclick="submitForm()" id="submit">送信</button>
       </form>
 
       <div id="confirmation_message" style="display: none">
@@ -80,8 +80,6 @@
       <div id="info_footer">
         <img src="img/bag.png" width="22" /> キャリア相談
       </div>
-
-      <!--セクションの終わりを示したり、参照元を再度表示するために使用-->
     </main>
 
     <footer>

@@ -30,12 +30,22 @@ main#info {
 
 #info_footer{
   position: relative;
-  top:100px;
+  top: 44px;
 }
 
 #submit{
   position: relative;
-  top:35px;
   left: 225px;
   font-size: 1.5rem;
+}
+
+#confirmation_message{
+  font-size: 20px;
+  top: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#return_button{
+  font-size: 20px;
 }

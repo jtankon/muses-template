@@ -8,22 +8,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   document.querySelector("#user_name span").textContent = username;
 
-  // イベントリスナー内でボタンにイベントハンドラを設定する
-  document.getElementById("submit").addEventListener("click", submitForm);
-  document
-    .getElementById("return_button")
-    .addEventListener("click", returnToForm);
+  const submitButton = document.getElementById("submit");
+  const textArea = document.getElementById("area");
+
+  textArea.addEventListener("input", checkTextArea);
+  submitButton.addEventListener("click", submitForm);
+  document.getElementById("return_button").addEventListener("click", returnToForm);
+
+  function checkTextArea() {
+    if (textArea.value.length >= 10) {
+      submitButton.disabled = false;
+    } else {
+      submitButton.disabled = true;
+    }
+  }
 
   function submitForm() {
     // フォームを非表示にして、完了メッセージを表示する
     document.getElementById("Form").style.display = "none";
     document.getElementById("confirmation_message").style.display = "block";
+    document.getElementById("info").style.height = "233px";
+    document.getElementById("info_footer").style.top = "45px";
   }
 
   function returnToForm() {
-    document.getElementById("area").value = "";
+    textArea.value = "";
     // 完了メッセージを非表示にして、フォームを表示する
     document.getElementById("confirmation_message").style.display = "none";
     document.getElementById("Form").style.display = "block";
+    document.getElementById("info").style.height = "350px";
+    document.getElementById("info_footer").style.top = "44px";
+    submitButton.disabled = true;
   }
+
+  // 初期状態で送信ボタンを無効にする
+  submitButton.disabled = true;
 });
+
+
+
+
+
