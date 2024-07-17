@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // JSONデータを読み込む関数
   async function loadJSON() {
-    const response = await fetch('calender.json');
+    const response = await fetch('career.json');
     const jsonData = await response.json();
     jsonData.list.forEach(event => {
       data.push({
