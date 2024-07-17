@@ -149,6 +149,8 @@ main#info {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: visible; /* Allow text to overflow the container */
 }
 
 .event-details {
@@ -170,7 +172,7 @@ main#info {
   margin: 0 10px;
 }
 .event-date {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -181,6 +183,8 @@ main#info {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: visible; /* Allow text to overflow the container */
 }
 
 .event-delete:hover {
@@ -196,14 +200,14 @@ main#info {
 /* dayビューでのイベントのスタイル */
 .fc-event,
 .fc-event-dot {
-  background-color: #0f2350; /* 緑色 */
-  border-color: #0f2350; /* 緑色 */
+  background-color: #283f76; /* 緑色 */
+  border-color: #283f76; /* 緑色 */
 }
 
 /* monthビューでのイベントのスタイル */
 .fc-event {
-  background-color: #2196f3; /* 青色 */
-  border-color: #2196f3; /* 青色 */
+  background-color: #f32121; /* 青色 */
+  border-color: #f32121; /* 青色 */
 }
 
 /* イベントのテキストのスタイル */

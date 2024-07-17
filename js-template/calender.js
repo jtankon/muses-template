@@ -23,8 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="event-info">
             <p class="event-date">日付: ${item.date}</p>
             <p class="event-event">予定: ${item.sch}</p>
-            <p class="event-time">開始時間: ${item.start_time} - 終了時間: ${item.finish_time}</p>
-            <p class="event-place">場所: ${item.place}</p>
+            <p class="event-time">開始時間: ${
+              item.start_time || "なし"
+            } - 終了時間: ${item.finish_time || "なし"}</p>
+            <p class="event-place">場所: ${item.place || "なし"}</p>
           </div>
         </div>
         <button class="event-delete" onclick="deleteEvent(${index})">削除</button>
@@ -41,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "renderEvents",
       data.map((item) => ({
         title: item.sch,
-        start: `${item.date}T${item.start_time}`, // Combine date and time for the event
+        start: item.start_time ? `${item.date}T${item.start_time}` : item.date,
         end: item.finish_time ? `${item.date}T${item.finish_time}` : undefined,
-        allDay: !item.start_time, // If no time is specified, treat it as an all-day event
-        description: `場所: ${item.place}`,
+        allDay: !item.start_time,
+        description: `場所: ${item.place || "なし"}`,
       })),
       true
     );
@@ -62,17 +64,19 @@ document.addEventListener("DOMContentLoaded", () => {
     allDaySlot: true,
     events: data.map((item) => ({
       title: item.sch,
-      start: `${item.date}T${item.start_time}`, // Combine date and time for the event
+      start: item.start_time ? `${item.date}T${item.start_time}` : item.date,
       end: item.finish_time ? `${item.date}T${item.finish_time}` : undefined,
-      allDay: !item.start_time, // If no time is specified, treat it as an all-day event
-      description: `場所: ${item.place}`,
+      allDay: !item.start_time,
+      description: `場所: ${item.place || "なし"}`,
     })),
     eventRender: function (event, element, view) {
       if (view.name === "month") {
         element.html('<div class="fc-event-dot"></div>' + event.title);
         element.css({
-          "background-color": "#333366",
-          "border-color": "#333366",
+          "background-color": "#2196f3",
+          "border-color": "#2196f3",
+          "white-space": "nowrap" /* Prevent text from wrapping */,
+          overflow: "visible",
         });
       } else {
         element.html(
@@ -82,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
             event.description
         );
         element.css({
-          "background-color": "#333366",
-          "border-color": "#333366",
+          "background-color": "#4caf50",
+          "border-color": "#4caf50",
         });
       }
       element.find(".fc-title").css({
@@ -109,12 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
           "renderEvents",
           data.map((item) => ({
             title: item.sch,
-            start: `${item.date}T${item.start_time}`, // Combine date and time for the event
+            start: item.start_time
+              ? `${item.date}T${item.start_time}`
+              : item.date,
             end: item.finish_time
               ? `${item.date}T${item.finish_time}`
               : undefined,
             allDay: true, // Force all events to be all-day in week view
-            description: `場所: ${item.place}`,
+            description: `場所: ${item.place || "なし"}`,
           }))
         );
       } else {
@@ -127,12 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
           "renderEvents",
           data.map((item) => ({
             title: item.sch,
-            start: `${item.date}T${item.start_time}`, // Combine date and time for the event
+            start: item.start_time
+              ? `${item.date}T${item.start_time}`
+              : item.date,
             end: item.finish_time
               ? `${item.date}T${item.finish_time}`
               : undefined,
             allDay: !item.start_time, // If no time is specified, treat it as an all-day event
-            description: `場所: ${item.place}`,
+            description: `場所: ${item.place || "なし"}`,
           }))
         );
       }
