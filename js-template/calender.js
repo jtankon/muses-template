@@ -8,9 +8,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   document.querySelector("#user_name span").textContent = username;
 
-  const savedData = localStorage.getItem("events");
-  const data = savedData ? JSON.parse(savedData) : [];
-  console.log(data);
+  let data = []; // 初期化した配列を用意
+
+  // JSONデータを読み込む関数
+  async function loadJSON() {
+    const response = await fetch('calender.json');
+    const jsonData = await response.json();
+    jsonData.list.forEach(event => {
+      data.push({
+        date: formatDate(event.date),
+        sch: event.title,
+        start_time: event.time.split(" - ")[0] || "",
+        finish_time: event.time.split(" - ")[1] || "",
+        place: event.place
+      });
+    });
+    localStorage.setItem("events", JSON.stringify(data));
+    renderData();
+    renderCalendarEvents();
+  }
+
+  // 日付フォーマット関数
+  function formatDate(dateString) {
+    const [date, day] = dateString.split('　');
+    const [month, dayNum] = date.split('月');
+    const year = new Date().getFullYear();
+    return `${year}-${month.padStart(2, '0')}-${dayNum.padStart(2, '0')}`;
+  }
 
   function renderData() {
     const dataContainer = document.getElementById("dataContainer");
@@ -25,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="event-event">予定: ${item.sch}</p>
             <p class="event-time">開始時間: ${
               item.start_time || ""
-            } - 終了時間: ${item.finish_time || ""}</p>
+            } 　 終了時間: ${item.finish_time || ""}</p>
             <p class="event-place">場所: ${item.place || ""}</p>
           </div>
         </div>
@@ -34,8 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dataContainer.appendChild(newData);
     });
   }
-
-  renderData();
 
   function renderCalendarEvents() {
     $("#calendar").fullCalendar("removeEvents");
@@ -147,6 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  loadJSON(); // JSONデータを読み込んで表示する
+
   function submitForm() {
     const form = document.getElementById("myForm");
     const formData = new FormData(form);
@@ -179,3 +203,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.submitForm = submitForm;
   window.deleteEvent = deleteEvent;
 });
+
