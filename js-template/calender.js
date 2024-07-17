@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="event-date">日付: ${item.date}</p>
             <p class="event-event">予定: ${item.sch}</p>
             <p class="event-time">開始時間: ${
-              item.start_time || "なし"
-            } - 終了時間: ${item.finish_time || "なし"}</p>
-            <p class="event-place">場所: ${item.place || "なし"}</p>
+              item.start_time || ""
+            } - 終了時間: ${item.finish_time || ""}</p>
+            <p class="event-place">場所: ${item.place || ""}</p>
           </div>
         </div>
         <button class="event-delete" onclick="deleteEvent(${index})">削除</button>
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start: item.start_time ? `${item.date}T${item.start_time}` : item.date,
         end: item.finish_time ? `${item.date}T${item.finish_time}` : undefined,
         allDay: !item.start_time,
-        description: `場所: ${item.place || "なし"}`,
+        description: `場所: ${item.place || ""}`,
       })),
       true
     );
@@ -67,14 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
       start: item.start_time ? `${item.date}T${item.start_time}` : item.date,
       end: item.finish_time ? `${item.date}T${item.finish_time}` : undefined,
       allDay: !item.start_time,
-      description: `場所: ${item.place || "なし"}`,
+      description: `場所: ${item.place || ""}`,
     })),
     eventRender: function (event, element, view) {
       if (view.name === "month") {
         element.html('<div class="fc-event-dot"></div>' + event.title);
         element.css({
-          "background-color": "#2196f3",
-          "border-color": "#2196f3",
+          "background-color": "#44617b",
+          "border-color": "#44617b",
           "white-space": "nowrap" /* Prevent text from wrapping */,
           overflow: "visible",
         });
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
             event.description
         );
         element.css({
-          "background-color": "#4caf50",
-          "border-color": "#4caf50",
+          "background-color": "#44617b",
+          "border-color": "#44617b",
         });
       }
       element.find(".fc-title").css({
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ? `${item.date}T${item.finish_time}`
               : undefined,
             allDay: true, // Force all events to be all-day in week view
-            description: `場所: ${item.place || "なし"}`,
+            description: `場所: ${item.place || ""}`,
           }))
         );
       } else {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ? `${item.date}T${item.finish_time}`
               : undefined,
             allDay: !item.start_time, // If no time is specified, treat it as an all-day event
-            description: `場所: ${item.place || "なし"}`,
+            description: `場所: ${item.place || ""}`,
           }))
         );
       }

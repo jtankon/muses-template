@@ -112,8 +112,8 @@ main#info {
 /* dayビューでのイベントのスタイル */
 .fc-event,
 .fc-event-dot {
-  background-color: #283f76; /* 緑色 */
-  border-color: #283f76; /* 緑色 */
+  background-color: #f32121; /* 緑色 */
+  border-color: #f32121; /* 緑色 */
 }
 
 /* monthビューでのイベントのスタイル */
