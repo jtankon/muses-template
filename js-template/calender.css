@@ -136,3 +136,78 @@ main#info {
 .fc-agenda-view .fc-day-grid {
   min-height: 100px; /* Adjust this value as needed */
 }
+
+#dataContainer {
+  margin-top: 20px;
+}
+
+.event-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d2fbaf;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.event-info {
+  flex-grow: 1;
+}
+
+.event-date,
+.event-time,
+.event-place,
+.event-event {
+  margin: 0 10px;
+}
+.event-date {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.event-delete {
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.event-delete:hover {
+  background-color: #cc0000;
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* dayビューでのイベントのスタイル */
+.fc-event,
+.fc-event-dot {
+  background-color: #0f2350; /* 緑色 */
+  border-color: #0f2350; /* 緑色 */
+}
+
+/* monthビューでのイベントのスタイル */
+.fc-event {
+  background-color: #2196f3; /* 青色 */
+  border-color: #2196f3; /* 青色 */
+}
+
+/* イベントのテキストのスタイル */
+.fc-event .fc-title {
+  color: #fff; /* 白色 */
+  font-weight: bold;
+}
