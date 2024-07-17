@@ -18,6 +18,7 @@ main#apply {
 #events .event {
   margin: 0.5rem;
   padding: 1rem;
+  padding-bottom: 0.3em;
   background-color: #d2fbaf;
 }
 
@@ -58,8 +59,21 @@ main#apply {
 }
 
 #situation {
+  background-color: #b3f76b;
+  width: 80%;
+  padding-right: 0.1em;
+  padding-left: 0.1em;
+  height: 40px;
   text-align: center;
+  margin: 0 auto; 
+  border-style: solid;
+  border-color: #5a9674;
+  border-width: 0.25em ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .rd{
   margin: 1.5em;
